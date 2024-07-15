@@ -6,7 +6,9 @@ kaplay();
 
 // Load sprites, create entities, etc.
 loadSprite("duckIdle", "src/kaplay/sprites/Duck/Sprites/Idle/Idle 001.png");
-loadSprite("button", "src/kaplay/sprites/start-btn.png");
+loadSprite("start-button", "src/kaplay/sprites/start-btn.png");
+loadSprite("play-button", "src/kaplay/sprites/play-btn.png");
+loadSprite("feed-button", "src/kaplay/sprites/feed-btn.png");
 
 
 const centerX = camPos().x / 2;
@@ -21,17 +23,40 @@ const player = add([
   "player"
 ]);
 
-const button = add([
-  sprite("button"),
+add([
+  sprite("start-button"),
   scale(3),
-  pos(vec2(200, 100)),
+  pos(centerX*1.5, centerY*3),
   area(),
-  "button"
+  "start-button"
+
+]);
+
+add([
+  sprite("play-button"),
+  scale(3),
+  pos(centerX/2.5, centerY*3),
+  area(),
+  "play-button"
+
+]);
+add([
+  sprite("feed-button"),
+  scale(3),
+  pos(centerX*2.5, centerY*3),
+  area(),
+  "feed-button"
 
 ]);
 
 
 
-onClick("button", () => {
-  console.log("hi")
-})
+onClick("start-button", () => {
+  console.log("start game")
+});
+onClick("play-button", () => {
+  console.log("play with ducky")
+});
+onClick("feed-button", () => {
+  console.log("feed ducky")
+});
